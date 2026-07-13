@@ -505,9 +505,14 @@ document.querySelector('input[type=tel]').addEventListener('input',function(e){
   else if(v.length>0)v=`(${v}`;
   e.target.value=v;
 });
-// modal
+// modal (mantido no DOM, mas os CTAs agora vão DIRETO ao checkout)
 const ov=document.getElementById('overlay');
-document.querySelectorAll('[data-modal]').forEach(b=>b.addEventListener('click',()=>ov.classList.add('open')));
+// CTAs -> checkout direto: dispara InitiateCheckout e repassa fbclid/UTMs
+document.querySelectorAll('[data-modal]').forEach(b=>b.addEventListener('click',function(e){
+  e.preventDefault();
+  try{ if(window.fbq){fbq('track','InitiateCheckout');} }catch(err){}
+  window.location.href=(typeof CHECKOUT_URL==='string'&&CHECKOUT_URL.indexOf('http')===0)?buildCheckoutUrl():'#';
+}));
 document.getElementById('closeModal').addEventListener('click',()=>ov.classList.remove('open'));
 ov.addEventListener('click',e=>{if(e.target===ov)ov.classList.remove('open')});
 document.addEventListener('keydown',e=>{if(e.key==='Escape')ov.classList.remove('open')});
