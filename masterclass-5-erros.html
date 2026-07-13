@@ -516,7 +516,15 @@ const leadForm=document.getElementById('leadForm');
 const acSink=document.querySelector('iframe[name="ac_sink"]');
 let acSubmitting=false;
 leadForm.addEventListener('submit',()=>{acSubmitting=true; if(window.fbq){fbq('track','InitiateCheckout',{},{eventID:window.__leadCapi?window.__leadCapi(leadForm):undefined});}});
-if(acSink)acSink.addEventListener('load',()=>{if(acSubmitting){window.location.href=(CHECKOUT_URL&&CHECKOUT_URL.indexOf('http')===0)?CHECKOUT_URL:"/obrigado";}});
+// repassa fbclid/UTMs (e afins) da URL da página para o checkout, preservando o ?order_bump=
+function buildCheckoutUrl(){
+  try{
+    const dest=new URL(CHECKOUT_URL);
+    new URLSearchParams(window.location.search).forEach((v,k)=>{ if(!dest.searchParams.has(k)) dest.searchParams.set(k,v); });
+    return dest.toString();
+  }catch(e){ return CHECKOUT_URL; }
+}
+if(acSink)acSink.addEventListener('load',()=>{if(acSubmitting){window.location.href=(CHECKOUT_URL&&CHECKOUT_URL.indexOf('http')===0)?buildCheckoutUrl():"/obrigado";}});
 // scroll reveal with stagger
 const io=new IntersectionObserver((entries)=>{
   entries.forEach((en,i)=>{if(en.isIntersecting){setTimeout(()=>en.target.classList.add('visible'),(i%6)*120);io.unobserve(en.target);}});
