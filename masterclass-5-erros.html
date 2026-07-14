@@ -507,10 +507,10 @@ document.querySelector('input[type=tel]').addEventListener('input',function(e){
 });
 // modal (mantido no DOM, mas os CTAs agora vão DIRETO ao checkout)
 const ov=document.getElementById('overlay');
-// CTAs -> checkout direto: dispara InitiateCheckout e repassa fbclid/UTMs
+// CTAs -> checkout direto (repassa fbclid/UTMs). NÃO dispara InitiateCheckout aqui:
+// o InitiateCheckout é disparado UNICAMENTE pelo checkout da Waid (evita evento duplicado sem desduplicação).
 document.querySelectorAll('[data-modal]').forEach(b=>b.addEventListener('click',function(e){
   e.preventDefault();
-  try{ if(window.fbq){fbq('track','InitiateCheckout');} }catch(err){}
   window.location.href=(typeof CHECKOUT_URL==='string'&&CHECKOUT_URL.indexOf('http')===0)?buildCheckoutUrl():'#';
 }));
 document.getElementById('closeModal').addEventListener('click',()=>ov.classList.remove('open'));
