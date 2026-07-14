@@ -3,7 +3,25 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Inscrição confirmada · Masterclass Reposição Hormonal na Mulher 40+</title>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '27147741051592454');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=27147741051592454&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+<title>Compra aprovada · Masterclass Reposição Hormonal na Mulher 40+</title>
+<meta name="robots" content="noindex">
 
 <!-- ============================================================
      CONFIGURAÇÃO
@@ -14,7 +32,14 @@
      ============================================================ -->
 <script>
   const GROUP_LINK = "https://chat.whatsapp.com/JmURUMZS53g8lxpVpIf9xq?mode=gi_t";
-  const REDIRECT_SECONDS = 8;
+  const REDIRECT_SECONDS = 6;
+  // Dispara o Purchase (fonte ÚNICA — o checkout Waid não envia esse evento).
+  // Valor via ?value= ou ?valor= (se o checkout repassar); padrão R$97.
+  try{
+    var _p = new URLSearchParams(window.location.search);
+    var _v = parseFloat(_p.get('value') || _p.get('valor') || '97') || 97;
+    if(window.fbq){ fbq('track','Purchase',{value:_v, currency:'BRL'}); }
+  }catch(e){}
 </script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -90,13 +115,13 @@ footer .copy{color:var(--muted); font-size:12px; margin-top:16px}
 </head>
 <body>
 
-<div class="topbar"><iconify-icon icon="solar:check-circle-bold"></iconify-icon> Inscrição confirmada</div>
+<div class="topbar"><iconify-icon icon="solar:check-circle-bold"></iconify-icon> Pagamento aprovado</div>
 
 <section class="fold-1">
   <div class="container">
-    <span class="badge reveal"><iconify-icon icon="solar:verified-check-outline"></iconify-icon> Inscrição confirmada</span>
+    <span class="badge reveal"><iconify-icon icon="solar:verified-check-outline"></iconify-icon> Pagamento aprovado</span>
     <h1 class="reveal">Sua vaga na Masterclass está <span class="gold-text">garantida</span>. Falta só um último passo.</h1>
-    <p class="lead-sub reveal">A aula é ao vivo no Zoom, dia <b>07 de julho, às 20h</b>, e <span class="warn">sem replay</span>. É no grupo de WhatsApp que você recebe o link de acesso e os lembretes.</p>
+    <p class="lead-sub reveal">A aula é ao vivo no Zoom, dia <b>28 de julho, às 20h</b>, e <span class="warn">sem replay</span>. É no grupo de WhatsApp que você recebe o link de acesso e os lembretes.</p>
     <p class="anchor reveal">Sem entrar no grupo, você não recebe o link da aula.</p>
     <a class="cta-wa reveal" id="ctaTop" href="#"><iconify-icon icon="ic:baseline-whatsapp"></iconify-icon> Entrar no grupo da aula</a>
     <p class="micro reveal">Você será direcionado automaticamente em <span id="countwrap"><span id="count">8</span>s</span>. Se nada acontecer, toque no botão acima.</p>
@@ -108,7 +133,7 @@ footer .copy{color:var(--muted); font-size:12px; margin-top:16px}
     <span class="eyebrow reveal">O que acontece agora</span>
     <h2 class="reveal">Garanta que você não vai perder a aula</h2>
 
-    <div class="date-pill reveal"><iconify-icon icon="solar:calendar-outline"></iconify-icon> 07 DE JULHO · TERÇA-FEIRA · 20H · AO VIVO NO ZOOM</div>
+    <div class="date-pill reveal"><iconify-icon icon="solar:calendar-outline"></iconify-icon> 28 DE JULHO · TERÇA-FEIRA · 20H · AO VIVO NO ZOOM</div>
 
     <div class="info-card reveal">
       <div class="ic"><iconify-icon icon="solar:link-circle-outline"></iconify-icon></div>
